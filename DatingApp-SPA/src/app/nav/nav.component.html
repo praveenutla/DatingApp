@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Dating App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+    aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Matches</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Messages</a>
+        </li>
+        <li *ngIf="loggedIn()" class="nav-item">
+          <a class="nav-link" (click)="logout()">Log Out</a>
+        </li>
+      </ul>
+
+      <li *ngIf="loggedIn()" class="dropdown">
+        <a class="dropdown-toggle">
+          Welcome {{model.username}}
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#"><i clas="fa fa-user"></i>i>Edit Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#"><i clas="fa fa-sign-out"></i>Logout</a></li>
+        </ul>
+      </li>
+
+      <form #loginform="ngForm" *ngIf="!loggedIn()" class="d-flex" (ngSubmit)="login()">
+        <input class="form-control me-2" type="text" placeholder="Username" aria-label="Search" 
+        name="username" [(ngModel)]="model.username" required>
+        <input class="form-control me-2" type="password" placeholder="Password" aria-label="Search"
+        name="password" [(ngModel)]="model.password" required>
+        <button [disabled]="!loginform.valid" class="btn btn-outline-success" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</nav>

@@ -69,7 +69,7 @@ namespace DatingApp.API.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokendescription);
 
-            return Ok(tokenHandler.WriteToken(token));
+            return Ok(new {token = tokenHandler.WriteToken(token)});
         }
     }
 }
