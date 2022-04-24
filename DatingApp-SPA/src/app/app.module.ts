@@ -25,6 +25,7 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { MemberCardDetailComponent } from './members/member-card-detail/member-card-detail.component';
 import { MemberDetailResolver } from './resolvers/member-detailed-resolver';
 import { MemberListResolver } from './resolvers/member-list-resolver';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 
 @NgModule({
   declarations: [							
@@ -36,7 +37,8 @@ import { MemberListResolver } from './resolvers/member-list-resolver';
       ListsComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberCardDetailComponent
+      MemberCardDetailComponent,
+      MemberEditComponent
    ],
   imports: [
     BrowserModule,
