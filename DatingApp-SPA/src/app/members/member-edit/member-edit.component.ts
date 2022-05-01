@@ -21,6 +21,7 @@ export class MemberEditComponent implements OnInit {
       $event.returnValue = true;
     }
   }
+  photoUrl:string;
 
   constructor(private userService: UserService, private alertifyService: AlertifyService, 
     private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
@@ -31,7 +32,7 @@ export class MemberEditComponent implements OnInit {
       this.user = data['user'];
     })
 
-
+    this.authService.currentPhotoUrl.subscribe(p => this.photoUrl = p);
     // this.userService.getUser(this.authService.decodeToken.nameid).subscribe(
     //   data => {
     //     this.user = data;
@@ -49,6 +50,10 @@ export class MemberEditComponent implements OnInit {
         this.alertifyService.error('Failed to save details.');
       }
     )
+  }
+
+  getMainPhotoUrl(url: string){
+    this.user.photoUrl = url;
   }
 
 }

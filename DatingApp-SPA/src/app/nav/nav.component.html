@@ -20,6 +20,9 @@
       </ul>
 
       <div dropdown *ngIf="loggedIn()"class="btn-group" >
+        <span class="me-1">
+          <img src="{{photoUrl}}">
+        </span>
         <button dropdownToggle type="button" class="btn btn-light dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
           Welcome {{auth.decodeToken?.unique_name | titlecase}}
         </button>

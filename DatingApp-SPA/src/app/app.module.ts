@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -26,6 +27,7 @@ import { MemberCardDetailComponent } from './members/member-card-detail/member-c
 import { MemberDetailResolver } from './resolvers/member-detailed-resolver';
 import { MemberListResolver } from './resolvers/member-list-resolver';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { PhotosEditComponent } from './members/photos-edit/photos-edit.component';
 
 @NgModule({
   declarations: [							
@@ -38,7 +40,8 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
       MessagesComponent,
       MemberCardComponent,
       MemberCardDetailComponent,
-      MemberEditComponent
+      MemberEditComponent,
+      PhotosEditComponent
    ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
       },
     }),
     TabsModule.forRoot(),
-    NgxGalleryModule
+    NgxGalleryModule,
+    FileUploadModule
   ],
   providers: [
     AuthService,
